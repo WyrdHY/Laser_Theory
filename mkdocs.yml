@@ -1,0 +1,31 @@
+﻿site_name: Laser Theory Notes
+site_url: https://wyrdhy.github.io/Laser_Theory/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Part A · Intro:
+      - A1 Demo Page: demo.md
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_javascript:
+  - assets/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
