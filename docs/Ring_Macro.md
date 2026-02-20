@@ -72,6 +72,8 @@ Without material dispersion, the time for the wave to complete a round trip is s
 $$
     T_{rt} = nL/c
 $$
+
+Also as the light is circulating from the right to the left, the phase information at the left side is always T slower than the right side.
 $$
     E_l(t) = \alpha E_r(t-T)
 $$
