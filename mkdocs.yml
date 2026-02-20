@@ -12,9 +12,10 @@ theme:
 
 nav:
   - Home: index.md
-  - Part A · Intro:
+  - Part A · Setup&Test:
       - A1 Demo Page: demo.md
-
+  - Part B · Resonator Coupler:
+      - B1 Macroscopic Picture: Ring_Macro.md
 markdown_extensions:
   - admonition
   - footnotes
