@@ -1,0 +1,724 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wyrdhy.github.io/Laser_Theory/Ring_Macro/">
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>B1 Macroscopic Picture - Laser Theory Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#macroscopic-description-of-a-ring-resonator-with-a-coupler" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Laser Theory Notes" class="md-header__button md-logo" aria-label="Laser Theory Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laser Theory Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B1 Macroscopic Picture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Laser Theory Notes" class="md-nav__button md-logo" aria-label="Laser Theory Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Laser Theory Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A · Setup&Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part B · Resonator Coupler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part B · Resonator Coupler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 Macroscopic Picture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="macroscopic-description-of-a-ring-resonator-with-a-coupler">Macroscopic description of a ring resonator with a coupler<a class="headerlink" href="#macroscopic-description-of-a-ring-resonator-with-a-coupler" title="Permanent link">&para;</a></h1>
+<p>Ring resonator is the basic component in photonics. It usually consists of a ring and a bus waveguide that sends electromagnetic wave into the ring and generates resonance inside. This section describes the macroscopic process of how a plane wave <span class="arithmatex">\(e^{iwt}\)</span> is coupled into the ring. In principle, the knowledge here is universal to any resonator plus coupler structure. It could be a simple two-mirror cavity, a LC resonator circuit, or any microwave cavity structure. </p>
+<p>Going back to the ring, below is a typical structure that we are going to analyze. We are sending a plane wave(<span class="arithmatex">\(E_{in}\)</span>) through the input port. Part of it couples into the right side of the ring(<span class="arithmatex">\(E_{r}\)</span>), circulates to the left side(<span class="arithmatex">\(E_{l}\)</span>), and eventually recouples back to the bus waveguide and interfere with the transmitted(<span class="arithmatex">\(E_{in}\)</span>) to produce the output field(<span class="arithmatex">\(E_{out}\)</span>)</p>
+<p>Under certain coupling condition, you are going to see all of the energy are efficiently coupled into the resonator to generate resonance. None of them is coming out of the output port--all consumed by the resonator. The resonance can build up tremendous energy density inside the resonator, and can possibly amplifying the power by 10000x depending on how good your ring is. Such amplification is powerful in enhancing light and material interaction and can efficiently drive nonlinear optical process inside the cavity. </p>
+<p>In addition to the schematic, I have attached my simulation results under different coupling conditions. Under good coupling, you successfully dump a massive load of energy into the ring, while in the bad coupling case, the plane wave just passes through, completely ignoring the ring.</p>
+<p><img alt="Typical waveguide ring structure" src="../pictures/Pulley_Coupler.png" />
+<img alt="Typical waveguide ring structure" src="../pictures/Good_Bad_Coupling.png" /></p>
+<p>The term coupling might appear ambiguous at present. It is a term that describes the process of sending EM field into the ring and is affected by the offset of input field(<span class="arithmatex">\(\omega\)</span>) from resonance frequency(<span class="arithmatex">\(\omega_{res}\)</span>),and whether the internal loss of the ring matches the coupler loss(similar concept as impedance matching in RF circuit). The detailed geometry of how the bus waveguide wraps certainly affects the coupling. However, that belongs to the microscopic picture. </p>
+<p>As a macroscopic picture, we simply model the coupling process as a black box and treat it as a 2x2 transfer matrix. This model aims to macroscopically describe how good your coupler is in coupling energy into the ring, and how the output spectrum behaves under different coupling conditions. </p>
+<hr />
+<div class="arithmatex">\[
+\hat{H}=
+\begin{pmatrix}
+\beta &amp; i\kappa \\
+i\kappa &amp; \beta
+\end{pmatrix}
+=
+\beta \, \hat{\mathbb{I}}
++
+i\kappa \, \hat{\sigma}_x
+\]</div>
+<div class="arithmatex">\[
+\begin{pmatrix}
+E_{\mathrm{out}} \\
+E_{r}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\beta &amp; i\kappa \\
+i\kappa &amp; \beta
+\end{pmatrix}
+\begin{pmatrix}
+E_{\mathrm{in}} \\
+E_{l}
+\end{pmatrix}
+\]</div>
+<p>$$
+    \kappa^2 + \beta^2 = 1
+$$
+where all of the variables are real. </p>
+<p>Such setting assumes that the coupling process is lossless and symmetric, as you can see from the structure of the Hamiltonian. It is symmetric in two aspects. First, spatially, the direction does not matter. Bus to bus is the same as ring to ring. Ring to bus is the same as bus to ring. I.e. <span class="arithmatex">\(H_{11} = H_{22}, H_{12} = H_{21}\)</span>. Second, the process obeys time-reversal symmetry. Therefore, the off-diagonal term carry the same phase. In fact, this is an interesting property of SU(2) group under these two symmetry. Given a lossless and symmetry coupling SU2 matrix, one can further prove that:
+$$
+H_{11} = H_{22} = \beta e^{i\theta/2}
+$$</p>
+<div class="arithmatex">\[
+H_{12} = H_{21} = i\kappa e^{i\theta/2}
+\]</div>
+<div class="arithmatex">\[
+det(H) = e^{i \theta}
+\]</div>
+<hr />
+<p>As light circulates within a cavity, it is also subject to a loss per round trip due to scattering or material imperfection. Therefore, we use <span class="arithmatex">\(\alpha\)</span> to describe transmission per round trip when light is circulating:
+$$
+    |E_{l}| = \alpha|E_{r}|
+$$</p>
+<p>Without material dispersion, the time for the wave to complete a round trip is simply given by the effective length divided by speed of light c:
+$$
+    T_{rt} = nL/c
+$$</p>
+<p>Also as the light is circulating from the right to the left, the phase information at the left side is always T slower than the right side.
+$$
+    E_l(t) = \alpha E_r(t-T)
+$$
+Apply Fourier transform <span class="arithmatex">\(\hat{\mathcal{F}}\)</span> on both sides. Note that with hat, the variable is in f-domain, while without the hat, that is in time-domain.
+$$
+    \hat{E_l} = \alpha e^{-i\omega T} \hat{E_r} 
+$$</p>
+<details class="note">
+<summary>Proof</summary>
+<p>Apply Fourier transform <span class="arithmatex">\(\hat{\mathcal{F}}\)</span> to both sides:
+$
+\hat{\mathcal{F}}{E_l(t)}=\hat{\mathcal{F}}{\alpha\,E_r(t-T)}
+$</p>
+<div class="arithmatex">\[
+\hat{E}_l(\omega)=\alpha\,\hat{\mathcal{F}}\{E_r(t-T)\}
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_r(\omega)=\hat{\mathcal{F}}\{E_r(t)\}=\int_{-\infty}^{\infty}E_r(t)\,e^{-i\omega t}\,dt
+\]</div>
+<div class="arithmatex">\[
+\hat{\mathcal{F}}\{E_r(t-T)\}
+=\int_{-\infty}^{\infty}E_r(t-T)\,e^{-i\omega t}\,dt
+\]</div>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty}E_r(t-T)\,e^{-i\omega t}\,dt
+=
+\int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega (u+T)}\,du
+\]</div>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega (u+T)}\,du
+=
+e^{-i\omega T}\int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega u}\,du
+\]</div>
+<div class="arithmatex">\[
+\hat{\mathcal{F}}\{E_r(t-T)\}=e^{-i\omega T}\,\hat{E}_r(\omega)
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_l(\omega)=\alpha\,e^{-i\omega T}\,\hat{E}_r(\omega)
+\]</div>
+</details>
+<hr />
+<p>The initial matrix equation also needs to be swapped to the f-domain. Plug the above relationship between left and right circulating field into the transfer equation:</p>
+<div class="arithmatex">\[
+\begin{pmatrix}
+\hat{E}_{\mathrm{out}} \\
+\hat{E}_{r}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\beta &amp; i\kappa \\
+i\kappa &amp; \beta
+\end{pmatrix}
+\begin{pmatrix}
+\hat{E}_{\mathrm{in}} \\
+\hat{E}_{l}
+\end{pmatrix}
+\]</div>
+<div class="arithmatex">\[
+\frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}
+=
+\frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
+\]</div>
+<div class="arithmatex">\[
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
+=
+\frac{i\alpha\kappa}{1-\alpha\beta e^{-i\omega T}}
+\]</div>
+<details class="note">
+<summary>Proof</summary>
+<div class="arithmatex">\[
+\hat{E}_{\mathrm{out}}=\beta \hat{E}_{\mathrm{in}}+i\kappa \hat{E}_{l}
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_{r}=i\kappa \hat{E}_{\mathrm{in}}+\beta \hat{E}_{l}
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_{l}=\alpha e^{-i\omega T}\hat{E}_{r}
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_{l}=\alpha e^{-i\omega T}\left(i\kappa \hat{E}_{\mathrm{in}}+\beta \hat{E}_{l}\right)
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_{l}-\alpha\beta e^{-i\omega T}\hat{E}_{l}
+=
+i\alpha\kappa e^{-i\omega T}\hat{E}_{\mathrm{in}}
+\]</div>
+<div class="arithmatex">\[
+\left(1-\alpha\beta e^{-i\omega T}\right)\hat{E}_{l}
+=
+i\alpha\kappa e^{-i\omega T}\hat{E}_{\mathrm{in}}
+\]</div>
+<div class="arithmatex">\[
+\hat{E}_{l}
+=
+\frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}\,
+\hat{E}_{\mathrm{in}}
+\]</div>
+<div class="arithmatex">\[
+\frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}
+=
+\frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
+\]</div>
+</details>
+<p>One is always interested in resonance case <span class="arithmatex">\(\omega T = m \cdot 2\pi\)</span>. Rewrite <span class="arithmatex">\(\omega = \omega_{res} + \Delta\omega\)</span>, where your pump frequency is slightly drifted away from the resonance:</p>
+<div class="arithmatex">\[
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
+=\frac{i\alpha\kappa}{1-\alpha\beta e^{-i(\omega_{res} + \Delta\omega)T}} = \frac{i\alpha\kappa }{1-\alpha\beta(1+i T \Delta\omega)} = 
+\frac{i\alpha\kappa \frac{1}{T}}{(1-\alpha\beta) \frac{1}{T}+i\alpha\beta\,\Delta\omega}
+\]</div>
+<p>The free spectral range(<span class="arithmatex">\(\Delta \nu\)</span>) is defined as <span class="arithmatex">\(\frac{1}{T}\)</span>: </p>
+<div class="arithmatex">\[
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}= \frac{i\alpha\kappa \Delta \nu}{(1-\alpha\beta) \Delta \nu+i\alpha\beta\,\Delta\omega}
+\]</div>
+<p>To package them up, let's define the electric field decay rate as <span class="arithmatex">\(\gamma\)</span>, then the photon life time is decaying at <span class="arithmatex">\(2\gamma\)</span>. </p>
+<details class="note">
+<summary>Proof</summary>
+<p>The unit for <span class="arithmatex">\(E^2\)</span> is number of photon(N) per second, thus: </p>
+<div class="arithmatex">\[
+E^2 \approx N / Time 
+\]</div>
+<div class="arithmatex">\[ 
+N \approx Time \cdot E^2 \approx E^2
+\]</div>
+<p>Photon life time is: </p>
+<div class="arithmatex">\[
+    \frac{dN}{dt} = \frac{d}{dt}(|E|^2) = E \dot{E^*} + E^*\dot{E} 
+\]</div>
+<p>We already know E decays at <span class="arithmatex">\(\gamma\)</span>: <span class="arithmatex">\(\frac{d}{dt}E = -\gamma E\)</span></p>
+<div class="arithmatex">\[
+    \frac{dN}{dt} = \frac{d}{dt}(|E|^2) = E \dot{E^*} + E^*\dot{E} = -2\gamma N
+\]</div>
+</details>
+<p>We distinguish the loss contribution here:</p>
+<ol>
+<li>
+<p>T means total, which represents the loss rate when ring is facing losses both from the cavity itself and the coupler. </p>
+</li>
+<li>
+<p>0 means intrinsic, which represents the loss rate when the ring is facing loss purely from the cavity. </p>
+</li>
+<li>
+<p>E means external, which means the loss rate when the ring is facing loss purely from the coupler
+$$
+    \gamma_T = (1-\alpha\beta) \Delta \nu 
+$$</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+    \gamma_0 = (1-\alpha \cdot 1) \Delta \nu 
+\]</div>
+<div class="arithmatex">\[
+  \gamma_E = (1-1 \cdot \beta) \Delta \nu
+\]</div>
+<p>for most of the modern ring resonators, <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span> are very closes to unity, so if one taylor expands them to first order. Intuitively, this is just total loss coming from internal and external loss.</p>
+<div class="arithmatex">\[
+    \gamma_T =  \gamma_0  + \gamma_E
+\]</div>
+<details class="note">
+<summary>Proof</summary>
+<div class="arithmatex">\[
+\gamma_T = (1-\alpha\beta)\Delta\nu,\quad
+\gamma_0 = (1-\beta)\Delta\nu,\quad
+\gamma_E = (1-\alpha)\Delta\nu
+\]</div>
+<p>Set</p>
+<div class="arithmatex">\[
+\alpha = 1-\epsilon_\alpha,\qquad \beta = 1-\epsilon_\beta,
+\qquad 0&lt;\epsilon_\alpha,\epsilon_\beta\ll 1
+\]</div>
+<p>Compute the product:</p>
+<div class="arithmatex">\[
+\alpha\beta = (1-\epsilon_\alpha)(1-\epsilon_\beta)
+= 1-\epsilon_\alpha-\epsilon_\beta+\epsilon_\alpha\epsilon_\beta
+\]</div>
+<p>Therefore</p>
+<div class="arithmatex">\[
+1-\alpha\beta
+= 1-\left(1-\epsilon_\alpha-\epsilon_\beta+\epsilon_\alpha\epsilon_\beta\right)
+= \epsilon_\alpha+\epsilon_\beta-\epsilon_\alpha\epsilon_\beta
+\]</div>
+<p>First-order Taylor (drop <span class="arithmatex">\(\epsilon_\alpha\epsilon_\beta\)</span>):</p>
+<div class="arithmatex">\[
+1-\alpha\beta \approx \epsilon_\alpha+\epsilon_\beta
+\]</div>
+<p>So</p>
+<div class="arithmatex">\[
+\gamma_T = (1-\alpha\beta)\Delta\nu \approx (\epsilon_\alpha+\epsilon_\beta)\Delta\nu
+\]</div>
+<p>Also</p>
+<div class="arithmatex">\[
+\gamma_0 = (1-\beta)\Delta\nu = \epsilon_\beta\Delta\nu
+\]</div>
+<div class="arithmatex">\[
+\gamma_E = (1-\alpha)\Delta\nu = \epsilon_\alpha\Delta\nu
+\]</div>
+<p>Add them:</p>
+<div class="arithmatex">\[
+\gamma_0+\gamma_E = (\epsilon_\beta+\epsilon_\alpha)\Delta\nu
+\]</div>
+<p>Thus</p>
+<div class="arithmatex">\[
+\gamma_T \approx \gamma_0+\gamma_E
+\]</div>
+</details>
+<p>Recall that the definition of quality factor is: 
+$$
+    Q = \omega_{res}\cdot \tau_{photon} = \frac{\omega_{res}}{2\gamma}
+$$</p>
+<p>Above expression can be defined in terms of quality factor:
+$$
+\boxed{
+\frac{1}{Q_T}
+=
+\frac{1}{Q_0}
++
+\frac{1}{Q_E}
+}
+$$</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
