@@ -5,12 +5,14 @@ This page describes how I deploy this online notebook and includes some of the t
 ## Repo Workflow
 Here is the listed file tree structure of the repo: 
 ---
+```
 repo/
 ├── docs/
 │ ├── index.md
 │ └── setup.md
 ├── mkdocs.yml
 └── .github/workflows/deploy.yml
+```
 ---
 deploy.yml will tell github to deploy the repo into this notebook style. mkdocs.yml is the configuration file that manage how things are displayed. setup.md, index.md, whaterever.md are the content you created. 
 
