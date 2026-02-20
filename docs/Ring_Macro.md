@@ -13,9 +13,6 @@ The term coupling might appear ambiguous at present. It is a term that describes
 As a macroscopic picture, we simply model the coupling process as a black box and treat it as a 2x2 transfer matrix. This model aims to macroscopically describe how good your coupler is in coupling energy into the ring, and how the output spectrum behaves under different coupling conditions. 
 
 --- 
-
-We are launching a
-
 $$
 \hat{H}=
 \begin{pmatrix}
