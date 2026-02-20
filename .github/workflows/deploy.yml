@@ -11,8 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+          cache: "pip"
+
+      - name: Cache MkDocs build cache
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: mkdocs-${{ runner.os }}-${{ github.ref }}-${{ github.sha }}
+          restore-keys: |
+            mkdocs-${{ runner.os }}-${{ github.ref }}-
+            mkdocs-${{ runner.os }}-
+
       - run: pip install mkdocs-material
       - run: mkdocs gh-deploy --force

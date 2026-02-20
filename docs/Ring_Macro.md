@@ -38,7 +38,6 @@ E_{r}
 \beta & i\kappa \\
 i\kappa & \beta
 \end{pmatrix}
-
 \begin{pmatrix}
 E_{\mathrm{in}} \\
 E_{l}
@@ -83,35 +82,41 @@ Apply Fourier transform $\hat{\mathcal{F}}$ on both sides. Note that with hat, t
 $$
     \hat{E_l} = \alpha e^{-i\omega T} \hat{E_r} 
 $$
-
 ??? note "Proof"
     Apply Fourier transform $\hat{\mathcal{F}}$ to both sides:
-    $$
+    $
     \hat{\mathcal{F}}\{E_l(t)\}=\hat{\mathcal{F}}\{\alpha\,E_r(t-T)\}
-    $$
+    $
+
     $$
     \hat{E}_l(\omega)=\alpha\,\hat{\mathcal{F}}\{E_r(t-T)\}
     $$
+
     $$
     \hat{E}_r(\omega)=\hat{\mathcal{F}}\{E_r(t)\}=\int_{-\infty}^{\infty}E_r(t)\,e^{-i\omega t}\,dt
     $$
+
     $$
     \hat{\mathcal{F}}\{E_r(t-T)\}
     =\int_{-\infty}^{\infty}E_r(t-T)\,e^{-i\omega t}\,dt
     $$
+
     $$
     \int_{-\infty}^{\infty}E_r(t-T)\,e^{-i\omega t}\,dt
     =
     \int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega (u+T)}\,du
     $$
+
     $$
     \int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega (u+T)}\,du
     =
     e^{-i\omega T}\int_{-\infty}^{\infty}E_r(u)\,e^{-i\omega u}\,du
     $$
+
     $$
     \hat{\mathcal{F}}\{E_r(t-T)\}=e^{-i\omega T}\,\hat{E}_r(\omega)
     $$
+
     $$
     \hat{E}_l(\omega)=\alpha\,e^{-i\omega T}\,\hat{E}_r(\omega)
     $$
@@ -145,33 +150,42 @@ $$
     $$
     \hat{E}_{\mathrm{out}}=\beta \hat{E}_{\mathrm{in}}+i\kappa \hat{E}_{l}
     $$
+
     $$
     \hat{E}_{r}=i\kappa \hat{E}_{\mathrm{in}}+\beta \hat{E}_{l}
     $$
+
     $$
     \hat{E}_{l}=\alpha e^{-i\omega T}\hat{E}_{r}
     $$
+
     $$
     \hat{E}_{l}=\alpha e^{-i\omega T}\left(i\kappa \hat{E}_{\mathrm{in}}+\beta \hat{E}_{l}\right)
     $$
+
     $$
     \hat{E}_{l}-\alpha\beta e^{-i\omega T}\hat{E}_{l}
     =
     i\alpha\kappa e^{-i\omega T}\hat{E}_{\mathrm{in}}
     $$
+
     $$
     \left(1-\alpha\beta e^{-i\omega T}\right)\hat{E}_{l}
     =
     i\alpha\kappa e^{-i\omega T}\hat{E}_{\mathrm{in}}
     $$
+
     $$
     \hat{E}_{l}
     =
     \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}\,
     \hat{E}_{\mathrm{in}}
     $$
+    
     $$
     \frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}
     =
     \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
     $$
+
+To be continued
