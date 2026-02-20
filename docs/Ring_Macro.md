@@ -5,6 +5,9 @@ Ring resonator is the basic component in photonics. It usually consists of a rin
 Going back to the ring, below is a typical structure that we are going to analyze. We are sending a plane wave($E_{in}$) through the input port. Part of it couples into the right side of the ring($E_{r}$), circulates to the left side($E_{l}$), and eventually recouples back to the bus waveguide and interfere with the transmitted($E_{in}$) to produce the output field($E_{out}$)
 
 Under certain coupling condition, you are going to see all of the energy are efficiently coupled into the resonator to generate resonance. None of them is coming out of the output port--all consumed by the resonator. The resonance can build up tremendous energy density inside the resonator, and can possibly amplifying the power by 10000x depending on how good your ring is. Such amplification is powerful in enhancing light and material interaction and can efficiently drive nonlinear optical process inside the cavity. 
+
+In addition to the schematic, I have attached my simulation results under different coupling conditions. Under good coupling, you successfully dump a massive load of energy into the ring, while in the bad coupling case, the plane wave just passes through, completely ignoring the ring.
+
 ![Typical waveguide ring structure](pictures/Pulley_Coupler.png)
 ![Typical waveguide ring structure](pictures/Good_Bad_Coupling.png)
 
@@ -145,6 +148,11 @@ $$
 \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
 $$
 
+$$
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
+=
+\frac{i\alpha\kappa}{1-\alpha\beta e^{-i\omega T}}
+$$
 ??? note "Proof"
     $$
     \hat{E}_{\mathrm{out}}=\beta \hat{E}_{\mathrm{in}}+i\kappa \hat{E}_{l}
@@ -187,4 +195,129 @@ $$
     \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
     $$
 
-To be continued
+One is always interested in resonance case $\omega T = m \cdot 2\pi$. Rewrite $\omega = \omega_{res} + \Delta\omega$, where your pump frequency is slightly drifted away from the resonance:
+
+$$
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
+=\frac{i\alpha\kappa}{1-\alpha\beta e^{-i(\omega_{res} + \Delta\omega)T}} = \frac{i\alpha\kappa }{1-\alpha\beta(1+i T \Delta\omega)} = 
+\frac{i\alpha\kappa \frac{1}{T}}{(1-\alpha\beta) \frac{1}{T}+i\alpha\beta\,\Delta\omega}
+$$
+
+The free spectral range($\Delta \nu$) is defined as $\frac{1}{T}$: 
+
+$$
+\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}= \frac{i\alpha\kappa \Delta \nu}{(1-\alpha\beta) \Delta \nu+i\alpha\beta\,\Delta\omega}
+$$
+
+To package them up, let's define the electric field decay rate as $\gamma$, then the photon life time is decaying at $2\gamma$. 
+??? note "Proof"
+    The unit for $E^2$ is number of photon(N) per second, thus: 
+
+    $$
+    E^2 \approx N / Time 
+    $$
+
+    $$ 
+    N \approx Time \cdot E^2 \approx E^2
+    $$
+
+    Photon life time is: 
+
+    $$
+        \frac{dN}{dt} = \frac{d}{dt}(|E|^2) = E \dot{E^*} + E^*\dot{E} 
+    $$
+
+    We already know E decays at $\gamma$: $\frac{d}{dt}E = -\gamma E$
+
+    $$
+        \frac{dN}{dt} = \frac{d}{dt}(|E|^2) = E \dot{E^*} + E^*\dot{E} = -2\gamma N
+    $$
+
+
+We distinguish the loss contribution here:
+
+1. T means total, which represents the loss rate when ring is facing losses both from the cavity itself and the coupler. 
+
+2. 0 means intrinsic, which represents the loss rate when the ring is facing loss purely from the cavity. 
+
+3. E means external, which means the loss rate when the ring is facing loss purely from the coupler
+$$
+    \gamma_T = (1-\alpha\beta) \Delta \nu 
+$$
+
+$$
+    \gamma_0 = (1-1 \cdot \beta) \Delta \nu 
+$$
+
+$$
+  \gamma_E = (1-\alpha \cdot 1) \Delta \nu
+$$
+
+for most of the modern ring resonators, $\alpha$ and $\beta$ are very closes to unity, so if one taylor expands them to first order: 
+
+$$
+    \gamma_T =  \gamma_0  + \gamma_E
+$$
+
+??? note "Proof"
+    $$
+    \gamma_T = (1-\alpha\beta)\Delta\nu,\quad
+    \gamma_0 = (1-\beta)\Delta\nu,\quad
+    \gamma_E = (1-\alpha)\Delta\nu
+    $$
+
+    Set
+
+    $$
+    \alpha = 1-\epsilon_\alpha,\qquad \beta = 1-\epsilon_\beta,
+    \qquad 0<\epsilon_\alpha,\epsilon_\beta\ll 1
+    $$
+
+    Compute the product:
+
+    $$
+    \alpha\beta = (1-\epsilon_\alpha)(1-\epsilon_\beta)
+    = 1-\epsilon_\alpha-\epsilon_\beta+\epsilon_\alpha\epsilon_\beta
+    $$
+
+    Therefore
+
+    $$
+    1-\alpha\beta
+    = 1-\left(1-\epsilon_\alpha-\epsilon_\beta+\epsilon_\alpha\epsilon_\beta\right)
+    = \epsilon_\alpha+\epsilon_\beta-\epsilon_\alpha\epsilon_\beta
+    $$
+
+    First-order Taylor (drop $\epsilon_\alpha\epsilon_\beta$):
+
+    $$
+    1-\alpha\beta \approx \epsilon_\alpha+\epsilon_\beta
+    $$
+
+    So
+
+    $$
+    \gamma_T = (1-\alpha\beta)\Delta\nu \approx (\epsilon_\alpha+\epsilon_\beta)\Delta\nu
+    $$
+
+    Also
+
+    $$
+    \gamma_0 = (1-\beta)\Delta\nu = \epsilon_\beta\Delta\nu
+    $$
+
+    $$
+    \gamma_E = (1-\alpha)\Delta\nu = \epsilon_\alpha\Delta\nu
+    $$
+
+    Add them:
+
+    $$
+    \gamma_0+\gamma_E = (\epsilon_\beta+\epsilon_\alpha)\Delta\nu
+    $$
+
+    Thus
+
+    $$
+    \gamma_T \approx \gamma_0+\gamma_E
+    $$
