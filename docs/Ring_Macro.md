@@ -38,11 +38,13 @@ E_{r}
 \beta & i\kappa \\
 i\kappa & \beta
 \end{pmatrix}
+
 \begin{pmatrix}
 E_{\mathrm{in}} \\
 E_{l}
 \end{pmatrix}
 $$
+
 $$
     \kappa^2 + \beta^2 = 1
 $$
@@ -57,10 +59,12 @@ $$
 $$
 H_{12} = H_{21} = i\kappa e^{i\theta/2}
 $$
+
 $$
 det(H) = e^{i \theta}
 $$
-??? Proof
+
+??? note "Proof"
         To be filled.
 
 As light circulates within a cavity, it is also subject to a loss per round trip due to scattering or material imperfection. Therefore, we use $\alpha$ to describe transmission per round trip when light is circulating:
@@ -80,7 +84,7 @@ $$
     \hat{E_l} = \alpha e^{-i\omega T} \hat{E_r} 
 $$
 
-??? Proof
+??? note "Proof"
     Apply Fourier transform $\hat{\mathcal{F}}$ to both sides:
     $$
     \hat{\mathcal{F}}\{E_l(t)\}=\hat{\mathcal{F}}\{\alpha\,E_r(t-T)\}
@@ -137,7 +141,7 @@ $$
 \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
 $$
 
-??? Proof
+??? note "Proof"
     $$
     \hat{E}_{\mathrm{out}}=\beta \hat{E}_{\mathrm{in}}+i\kappa \hat{E}_{l}
     $$
