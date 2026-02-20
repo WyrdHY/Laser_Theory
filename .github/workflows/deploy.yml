@@ -2,8 +2,7 @@ name: deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -12,10 +11,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v5
-      with:
-        python-version: "3.x"
-        cache: "pip"
+      - uses: actions/checkout@v4
 
-    - run: pip install -r requirements.txt
-    - run: mkdocs gh-deploy --force
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - run: pip install -r requirements.txt
+      - run: mkdocs gh-deploy --force
