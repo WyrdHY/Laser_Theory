@@ -63,8 +63,7 @@ $$
 det(H) = e^{i \theta}
 $$
 
-??? note "Proof"
-        To be filled.
+---
 
 As light circulates within a cavity, it is also subject to a loss per round trip due to scattering or material imperfection. Therefore, we use $\alpha$ to describe transmission per round trip when light is circulating:
 $$
@@ -246,14 +245,15 @@ $$
 $$
 
 $$
-    \gamma_0 = (1-1 \cdot \beta) \Delta \nu 
+    \gamma_0 = (1-\alpha \cdot 1) \Delta \nu 
 $$
 
 $$
-  \gamma_E = (1-\alpha \cdot 1) \Delta \nu
+  \gamma_E = (1-1 \cdot \beta) \Delta \nu
 $$
 
-for most of the modern ring resonators, $\alpha$ and $\beta$ are very closes to unity, so if one taylor expands them to first order: 
+for most of the modern ring resonators, $\alpha$ and $\beta$ are very closes to unity, so if one taylor expands them to first order. Intuitively, this is just total loss coming from internal and external loss.
+
 
 $$
     \gamma_T =  \gamma_0  + \gamma_E
@@ -321,3 +321,19 @@ $$
     $$
     \gamma_T \approx \gamma_0+\gamma_E
     $$
+
+Recall that the definition of quality factor is: 
+$$
+    Q = \omega_{res}\cdot \tau_{photon} = \frac{\omega_{res}}{2\gamma}
+$$
+
+Above expression can be defined in terms of quality factor:
+$$
+\boxed{
+\frac{1}{Q_T}
+=
+\frac{1}{Q_0}
++
+\frac{1}{Q_E}
+}
+$$
