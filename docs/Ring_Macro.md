@@ -15,7 +15,8 @@ The term coupling might appear ambiguous at present. It is a term that describes
 
 As a macroscopic picture, we simply model the coupling process as a black box and treat it as a 2x2 transfer matrix. This model aims to macroscopically describe how good your coupler is in coupling energy into the ring, and how the output spectrum behaves under different coupling conditions. 
 
---- 
+## Transfer Matrix
+
 $$
 \hat{H}=
 \begin{pmatrix}
@@ -63,8 +64,7 @@ $$
 det(H) = e^{i \theta}
 $$
 
----
-
+## Circulating Intensity
 As light circulates within a cavity, it is also subject to a loss per round trip due to scattering or material imperfection. Therefore, we use $\alpha$ to describe transmission per round trip when light is circulating:
 $$
     |E_{l}| = \alpha|E_{r}|
@@ -147,11 +147,6 @@ $$
 \frac{i\alpha\kappa e^{-i\omega T}}{1-\alpha\beta e^{-i\omega T}}
 $$
 
-$$
-\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
-=
-\frac{i\alpha\kappa}{1-\alpha\beta e^{-i\omega T}}
-$$
 ??? note "Proof"
     $$
     \hat{E}_{\mathrm{out}}=\beta \hat{E}_{\mathrm{in}}+i\kappa \hat{E}_{l}
@@ -197,17 +192,23 @@ $$
 One is always interested in resonance case $\omega T = m \cdot 2\pi$. Rewrite $\omega = \omega_{res} + \Delta\omega$, where your pump frequency is slightly drifted away from the resonance:
 
 $$
-\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}
-=\frac{i\alpha\kappa}{1-\alpha\beta e^{-i(\omega_{res} + \Delta\omega)T}} = \frac{i\alpha\kappa }{1-\alpha\beta(1+i T \Delta\omega)} = 
-\frac{i\alpha\kappa \frac{1}{T}}{(1-\alpha\beta) \frac{1}{T}+i\alpha\beta\,\Delta\omega}
+\frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}
+=\frac{i\alpha\kappa e^{-i(\omega_{res} + \Delta\omega)T}}{1-\alpha\beta e^{-i(\omega_{res} + \Delta\omega)T}} 
+= \frac{i\alpha\kappa }{e^{i(\omega_{res} + \Delta\omega)T}-\alpha\beta} 
+$$
+
+$$
+= \frac{i\alpha\kappa }{1 + i\Delta\omega T - \alpha\beta} 
+= \frac{i\alpha\kappa \frac{1}{T}}{(1-\alpha\beta) \frac{1}{T}+i\Delta\omega}
 $$
 
 The free spectral range($\Delta \nu$) is defined as $\frac{1}{T}$: 
 
 $$
-\frac{\hat{E}_{r}}{\hat{E}_{\mathrm{in}}}= \frac{i\alpha\kappa \Delta \nu}{(1-\alpha\beta) \Delta \nu+i\alpha\beta\,\Delta\omega}
+\frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}= \frac{i\alpha\kappa \Delta \nu}{(1-\alpha\beta) \Delta \nu+i\Delta\omega}
 $$
 
+## Quality Factor and Loss
 To package them up, let's define the electric field decay rate as $\gamma$, then the photon life time is decaying at $2\gamma$. 
 ??? note "Proof"
     The unit for $E^2$ is number of photon(N) per second, thus: 
@@ -328,6 +329,7 @@ $$
 $$
 
 Above expression can be defined in terms of quality factor:
+
 $$
 \boxed{
 \frac{1}{Q_T}
@@ -337,3 +339,344 @@ $$
 \frac{1}{Q_E}
 }
 $$
+
+## Cavity Field Equation in Time Domain
+Rewrite the equation
+
+$$
+\frac{\hat{E}_{l}}{\hat{E}_{\mathrm{in}}}= \frac{i\alpha\kappa \Delta \nu}{(1-\alpha\beta) \Delta \nu+i\alpha\beta\,\Delta\omega}= \frac{i\alpha\kappa \Delta \nu}{\gamma_T+i\Delta\omega}
+$$
+
+$$
+i\omega \hat{E}_{l}
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)\hat{E}_{l}
++
+i\alpha\kappa \Delta \nu\, \hat{E}_{\mathrm{in}}
+$$
+
+Inverse Fourier Transform back to the time domain: 
+
+$$
+    \dot{E_l}(t) = \left( i\omega_{\mathrm{res}} - \gamma_T \right){E}_{l}(t)
++
+i\alpha\kappa \Delta \nu\, {E}_{\mathrm{in}}(t)
+$$
+
+To describe the number of photons in the field, E is not a convenient attribute to use because $|E|^2$ is intensity, whose unit is number of photons per second [#/s]. We seek a quantity, a, whose $|a|^2$ returns us photon number 
+
+$$
+E^2 = \frac{N}{\text{unit time}}
+$$
+
+Take a round trip time as the unit time
+
+$$
+    N = |E|^2\cdot T_{rt} 
+        = E^2 \cdot \frac{1}{\Delta\nu} = |a|^2
+$$
+
+Thus we define a as the circulating cavity field intensiy
+
+$$
+    a \equiv \frac{E}{\sqrt{\Delta\nu}}
+$$
+
+One can immediately recognize a problem with such definition. The electric field is not a constant along the circumference of the ring. Both $E_l$ and $E_r$ are light circulating inside the cavity, yet they differ by an internal cavity loss $\alpha$. 
+
+In fact when electric field travels from the right to the left, it gradually loses amplitude, and when it enters the black box region, it has a sudden jump from $E_l$ to $E_r$. It is not continuous under the macroscopic model!
+
+![Typical waveguide ring structure](pictures/field_var.png)
+
+In fact, cavity field is actually fluctuating between $E_l$ and $E_r$, but for high Q cavity, the loss is so low that $E_l$ and $E_r$ are infinitely close to each other. In this case, we can be sloppy and say cavity field is constant along the ring. For simplicity, we take 
+
+$$
+a  = \frac{E_l}{\sqrt{\Delta\nu}}
+$$
+
+$$
+    \dot{E_l}(t) = \left( i\omega_{\mathrm{res}} - \gamma_T \right){E}_{l}(t)
++
+i\alpha\kappa \Delta \nu\, {E}_{\mathrm{in}}(t)
+$$
+
+$$
+\dot a(t)
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)a(t)
++
+i\alpha\kappa \sqrt{\Delta\nu}\, E_{\mathrm{in}}(t)
+$$
+
+Note that 
+
+$$
+    \alpha\kappa \sqrt{\Delta\nu} = \sqrt{\frac{\omega_{res}}{Q_E}}
+$$
+
+Thus 
+
+$$
+    \boxed{\dot a(t)
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)a(t)
++
+i\sqrt{\frac{\omega_{res}}{Q_E}}E_{\mathrm{in}}(t)
+}
+$$
+
+Or alternatively, in loss form:
+
+$$
+    \boxed{\dot a(t)
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)a(t)
++
+i\sqrt{2 \gamma_E}E_{in}(t)
+}
+$$
+
+??? note "Proof"
+    $$
+        \kappa^2 + \beta^2 = 1
+    $$
+
+    $$
+        \kappa  = \sqrt{1-\beta^2} = \sqrt{1-\beta}\sqrt{1+\beta} 
+    $$
+
+    $$
+        \lim_{\beta\rightarrow1}\kappa = \sqrt{2}\sqrt{1-\beta}=\sqrt{2}\sqrt{\frac{\gamma_E}{\Delta \nu}}
+    $$
+
+    The definition of Q is: $Q = \frac{w}{2\cdot\text{field loss}}$
+
+    $$
+        \gamma_E = \frac{w_{res}}{2Q}
+    $$
+
+    $$
+        \lim_{\alpha,\beta\rightarrow1}\alpha\kappa\sqrt{\Delta\nu}=1\cdot\sqrt{2}\sqrt{{\gamma_E}} = \sqrt{\frac{\omega_{res}}{Q_E}}
+    $$
+
+## Coupling Strength
+$$
+    \boxed{\dot a(t)
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)a(t)
++
+i\sqrt{2 \gamma_E}E_{in}(t)
+}
+$$
+
+This is a classic diven oscillator equation. $\left( i\omega_{\mathrm{res}} - \gamma_T \right)$ is the natural response frequency of the system. It offers the general solution in the form of $e^{-\gamma t}e^{i\omega_{res}t}$. In the long run, this term dies. The system will approach the external tuning frequency $\omega$ given by $E_{in} = |E_{in}|e^{iwt}$. This is called the particular solution. In the long run, only the particular solution survives. We assume that eventually $a = A e^{i\omega t}$.
+
+if $\omega=\omega_{res}$:
+$$
+A
+=
+i \left\lbrace \frac{2\gamma_E}{\gamma_T^2} \right\rbrace^{\frac{1}{2}} |E_{in}|
+=
+i \left\lbrace \frac{2\gamma_E}{(\gamma_0 + \gamma_E)^2} \right\rbrace^{\frac{1}{2}} |E_{in}|
+$$
+
+??? note "Proof"
+    Assume a monochromatic drive
+    $$
+    E_{in}(t)=|E_{in}|e^{i\omega t},
+    $$
+    and in steady state take the particular solution ansatz
+    $$
+    a(t)=A e^{i\omega t}
+    \quad\Longrightarrow\quad
+    \dot a(t)= i\omega A e^{i\omega t}.
+    $$
+
+    Substitute into the equation of motion:
+    $$
+    i\omega A e^{i\omega t}
+    =
+    \left( i\omega_{\mathrm{res}} - \gamma_T \right)A e^{i\omega t}
+    +
+    i\sqrt{2\gamma_E}\,|E_{in}|e^{i\omega t}.
+    $$
+
+    Cancel the common factor \(e^{i\omega t}\):
+    $$
+    i\omega A
+    =
+    \left( i\omega_{\mathrm{res}} - \gamma_T \right)A
+    +
+    i\sqrt{2\gamma_E}\,|E_{in}|.
+    $$
+
+    Rearrange and solve for \(A\):
+    $$
+    \left[\gamma_T + i(\omega-\omega_{\mathrm{res}})\right]A
+    =
+    i\sqrt{2\gamma_E}\,|E_{in}|
+    \quad\Longrightarrow\quad
+    A
+    =
+    \frac{i\sqrt{2\gamma_E}}{\gamma_T + i(\omega-\omega_{\mathrm{res}})}\,|E_{in}|.
+    $$
+
+    On resonance \(\omega=\omega_{\mathrm{res}}\):
+    $$
+    A
+    =
+    \frac{i\sqrt{2\gamma_E}}{\gamma_T}\,|E_{in}|
+    =
+    i\left(\frac{2\gamma_E}{\gamma_T^2}\right)^{\frac12}|E_{in}|.
+    $$
+
+    Using \(\gamma_T=\gamma_0+\gamma_E\):
+    $$
+    A
+    =
+    i\left(\frac{2\gamma_E}{(\gamma_0+\gamma_E)^2}\right)^{\frac12}|E_{in}|.
+    $$
+Maximum cavity field occurs when $\left\lbrace \frac{2\gamma_E}{(\gamma_0 + \gamma_E)^2} \right\rbrace$ is maximize. For a fixed $\gamma_0$, one can find maximum coupling, i.e. critical coupling, happens at:
+$$
+\text{Critical Coupling: }\gamma_E=\gamma_0.
+$$
+??? note "Proof"
+    Maximum cavity field occurs when the prefactor
+    $$
+    \left\lbrace \frac{2\gamma_E}{(\gamma_0+\gamma_E)^2} \right\rbrace
+    $$
+    is maximized (with respect to the coupling rate \(\gamma_E\), for fixed intrinsic loss \(\gamma_0\)).
+
+    Define
+    $$
+    f(\gamma_E)\equiv \frac{2\gamma_E}{(\gamma_0+\gamma_E)^2}.
+    $$
+    Differentiate with respect to \(\gamma_E\):
+    $$
+    \frac{df}{d\gamma_E}
+    =
+    2(\gamma_0+\gamma_E)^{-2}
+    +
+    2\gamma_E\cdot(-2)(\gamma_0+\gamma_E)^{-3}.
+    $$
+    Factor out \(2(\gamma_0+\gamma_E)^{-3}\):
+    $$
+    \frac{df}{d\gamma_E}
+    =
+    2(\gamma_0+\gamma_E)^{-3}\Big[(\gamma_0+\gamma_E)-2\gamma_E\Big]
+    =
+    2(\gamma_0+\gamma_E)^{-3}(\gamma_0-\gamma_E).
+    $$
+    Set the derivative to zero:
+    $$
+    \frac{df}{d\gamma_E}=0
+    \quad\Longrightarrow\quad
+    \gamma_0-\gamma_E=0
+    \quad\Longrightarrow\quad
+    \boxed{\gamma_E=\gamma_0.}
+    $$
+    Moreover, since \((\gamma_0+\gamma_E)^{-3}>0\), the derivative changes sign from \(+\) to \(-\) as \(\gamma_E\) crosses \(\gamma_0\), confirming this critical point is a maximum.
+
+    Thus the maximum cavity field (critical coupling) occurs at
+    $$
+    \boxed{\text{Critical Coupling: }\gamma_E=\gamma_0.}
+    $$
+
+Subsequently, one can define under and over coupling as:
+$$
+\text{Under Coupling: }\gamma_E<\gamma_0.
+$$
+
+$$
+\text{Over Coupling: }\gamma_E>\gamma_0.
+$$
+
+## Transmission Spectrum 
+From the transfer matrix
+
+$$
+\hat{E}_{\mathrm{out}}
+=
+i\kappa \hat{E}_{l}
++
+\beta \hat{E}_{\mathrm{in}} 
+=
+i\kappa \sqrt{\Delta\nu}\,\hat{a}
++
+\beta \hat{E}_{\mathrm{in}}
+$$
+
+$$
+= i\sqrt{2\gamma_E}\hat{a} + \beta \hat{E}_{\mathrm{in}}
+$$
+
+Recall that the cavity rate equation is given by:
+$$
+\boxed{
+\dot a(t)
+=
+\left( i\omega_{\mathrm{res}} - \gamma_T \right)a(t)
++
+i\sqrt{2 \gamma_E}\,E_{in}(t)
+}
+$$
+
+Running an inverse Fourier transfer to obtain $\hat{a}$, and plug it back to $E_{out}$:
+$$
+\boxed{
+\hat E_{\mathrm{out}}(\omega)
+=
+\left[
+\beta
+-
+\frac{2\gamma_E}{\gamma_T+i(\omega-\omega_{\mathrm{res}})}
+\right]
+\hat E_{\mathrm{in}}(\omega)
+}
+$$
+
+??? note "Proof"
+    $$
+    \hat{\mathcal{F}}\{\dot a(t)\}= i\omega \hat a(\omega)
+    $$
+
+    $$
+    i\omega \hat a(\omega)
+    =
+    \left( i\omega_{\mathrm{res}} - \gamma_T \right)\hat a(\omega)
+    +
+    i\sqrt{2\gamma_E}\,\hat E_{in}(\omega)
+    $$
+
+    $$
+    \left[\gamma_T+i(\omega-\omega_{\mathrm{res}})\right]\hat a(\omega)
+    =
+    i\sqrt{2\gamma_E}\,\hat E_{in}(\omega)
+    $$
+
+    $$
+    \hat a(\omega)
+    =
+    \frac{i\sqrt{2\gamma_E}}{\gamma_T+i(\omega-\omega_{\mathrm{res}})}\,\hat E_{in}(\omega)
+    $$
+
+    $$
+    \hat E_{\mathrm{out}}(\omega)
+    =
+    i\sqrt{2\gamma_E}\,\hat a(\omega)
+    +
+    \beta\,\hat E_{\mathrm{in}}(\omega)
+    $$
+
+    $$
+    \boxed{
+    \hat E_{\mathrm{out}}(\omega)
+    =
+    -\left[
+    \frac{2\gamma_E}{\gamma_T+i(\omega-\omega_{\mathrm{res}})}
+    \right]
+    \hat E_{\mathrm{in}}(\omega) +\beta\hat E_{\mathrm{in}}(\omega)
+    }
+    $$
+Below is the contour of the impedance matching and the chopped slices at different $\gamma_E$. Here, $w_{res}, \gamma_0,\beta$ are all set to 1, and we are tuning the pump frequency and coupling loss $\gamma_E$. The critical coupling condition here requires $\gamma_E =\gamma_0 = 1$.
+![Typical waveguide ring structure](pictures/Impedance_Matching.png)

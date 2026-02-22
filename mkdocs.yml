@@ -12,8 +12,14 @@ theme:
 nav:
   - Home: index.md
   - Part A · Setup&Test: setup.md
-  - Part B · Resonator Coupler:
-      - B1 Macroscopic Picture: Ring_Macro.md
+  - Part B · Resonator Coupler: 
+      - B1 Macroscopic Picture: 
+        - C1 Rate Equation Model: Ring_Macro.md
+        - C2 Splitting Resonance: Split_Resonance.md
+        - C3 Resonator With Drop Port:  Drop_Port.md
+      - B2 Microscopic Picture:
+        - C1 Driven Two Level System: Driven_TLS.md
+
 markdown_extensions:
   - admonition
   - footnotes
@@ -28,3 +34,6 @@ markdown_extensions:
 extra_javascript:
   - assets/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+extra_css:
+  - assets/extra.css
