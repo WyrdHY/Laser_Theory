@@ -2,13 +2,16 @@
 
 Ring resonator is the basic component in photonics. It usually consists of a ring and a bus waveguide that sends electromagnetic wave into the ring and generates resonance inside. This section describes the macroscopic process of how a plane wave $e^{iwt}$ is coupled into the ring. In principle, the knowledge here is universal to any resonator plus coupler structure. It could be a simple two-mirror cavity, a LC resonator circuit, or any microwave cavity structure. 
 
+| | |
+|---|---|
+| ![](pictures/Ring_Dynamics_flip.gif) | ![](pictures/Pulley_Coupler_650h.png) |
+
 Going back to the ring, below is a typical structure that we are going to analyze. We are sending a plane wave($E_{in}$) through the input port. Part of it couples into the right side of the ring($E_{r}$), circulates to the left side($E_{l}$), and eventually recouples back to the bus waveguide and interfere with the transmitted($E_{in}$) to produce the output field($E_{out}$)
 
 Under certain coupling condition, you are going to see all of the energy are efficiently coupled into the resonator to generate resonance. None of them is coming out of the output port--all consumed by the resonator. The resonance can build up tremendous energy density inside the resonator, and can possibly amplifying the power by 10000x depending on how good your ring is. Such amplification is powerful in enhancing light and material interaction and can efficiently drive nonlinear optical process inside the cavity. 
 
 In addition to the schematic, I have attached my simulation results under different coupling conditions. Under good coupling, you successfully dump a massive load of energy into the ring, while in the bad coupling case, the plane wave just passes through, completely ignoring the ring.
 
-![Typical waveguide ring structure](pictures/Pulley_Coupler.png)
 ![Typical waveguide ring structure](pictures/Good_Bad_Coupling.png)
 
 The term coupling might appear ambiguous at present. It is a term that describes the process of sending EM field into the ring and is affected by the offset of input field($\omega$) from resonance frequency($\omega_{res}$),and whether the internal loss of the ring matches the coupler loss(similar concept as impedance matching in RF circuit). The detailed geometry of how the bus waveguide wraps certainly affects the coupling. However, that belongs to the microscopic picture. 
@@ -16,6 +19,7 @@ The term coupling might appear ambiguous at present. It is a term that describes
 As a macroscopic picture, we simply model the coupling process as a black box and treat it as a 2x2 transfer matrix. This model aims to macroscopically describe how good your coupler is in coupling energy into the ring, and how the output spectrum behaves under different coupling conditions. 
 
 ## Transfer Matrix
+![Typical waveguide ring structure](pictures/Pulley_Coupler.png)
 
 $$
 \hat{H}=
