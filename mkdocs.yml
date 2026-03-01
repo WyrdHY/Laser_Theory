@@ -19,6 +19,7 @@ nav:
         - C3 Resonator With Drop Port:  Drop_Port.md
       - B2 Microscopic Picture:
         - C1 Driven Two Level System: Driven_TLS.md
+        - C2 Microscopic Picture of Coupling: Ring__Micro.md
 
 markdown_extensions:
   - admonition
