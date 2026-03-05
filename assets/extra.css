@@ -1,0 +1,9 @@
+/* Make the main content column wider */
+.md-grid {
+  max-width: 75rem;   /* default is ~61rem; increase as you like */
+}
+
+/* Optional: make the article itself use more of the grid */
+.md-content__inner {
+  max-width: 100%;
+}
