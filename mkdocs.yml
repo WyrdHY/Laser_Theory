@@ -16,10 +16,11 @@ nav:
       - B1 Macroscopic Picture: 
         - C1 Rate Equation Model: Ring_Macro.md
         - C2 Splitting Resonance: Split_Resonance.md
-        - C3 Resonator With Drop Port:  Drop_Port.md
+        - C3 Resonator With A Drop Port:  Drop_Port.md
       - B2 Microscopic Picture:
         - C1 Driven Two Level System: Driven_TLS.md
-        - C2 Microscopic Picture of Coupling: Ring__Micro.md
+        - C2 Microscopic Picture of Coupling: Ring_Micro.md
+  - Part C · Leaky Mode Antenna: Leaky_Mode_Antenna.md
 
 markdown_extensions:
   - admonition
