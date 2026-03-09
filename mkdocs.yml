@@ -14,13 +14,15 @@ nav:
   - Part A · Setup&Test: setup.md
   - Part B · Resonator Coupler: 
       - B1 Macroscopic Picture: 
-        - C1 Rate Equation Model: Ring_Macro.md
-        - C2 Splitting Resonance: Split_Resonance.md
-        - C3 Resonator With A Drop Port:  Drop_Port.md
+        - 1 Rate Equation Model: Ring_Macro.md
+        - 2 Splitting Resonance: Split_Resonance.md
+        - 3 Resonator With A Drop Port:  Drop_Port.md
       - B2 Microscopic Picture:
-        - C1 Driven Two Level System: Driven_TLS.md
-        - C2 Microscopic Picture of Coupling: Ring_Micro.md
-  - Part C · Leaky Mode Antenna: Leaky_Mode_Antenna.md
+        - 1 Driven Two Level System: Driven_TLS.md
+        - 2 Microscopic Picture of Coupling: Ring_Micro.md
+  - Part C · Leaky Mode Antenna: 
+        - 1 Leaky Mode Antenna: Leaky_Mode_Antenna.md
+        - 2 Measured Value and Model Revisited: THG_Power_Estimate.md
 
 markdown_extensions:
   - admonition
